@@ -180,7 +180,7 @@ public class Ejp22_GenerarNumerosPrimos extends javax.swing.JPanel {
                 txtNnaturales.setText("");
                 txtNprimos.setText("");
                 txtNcompuestos.setText("");
-                return; // Agregar return para que no continúe
+                return;
             }
 
             String comodin = "";

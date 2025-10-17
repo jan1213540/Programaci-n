@@ -43,6 +43,11 @@ public class Ejp33_TrianguloIDeNumeros extends javax.swing.JPanel {
         jLabel2.setBounds(50, 30, 580, 49);
 
         txtBf.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtBf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBfActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtBf);
         txtBf.setBounds(240, 80, 146, 55);
 
@@ -112,6 +117,10 @@ public class Ejp33_TrianguloIDeNumeros extends javax.swing.JPanel {
          txtBf.setText("");
          txtTriangulo.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtBfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBfActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,9 +8,7 @@ import javax.swing.table.DefaultTableModel;
  * @Jandry Gutierrez
  */
 public class Ejp28_SistemaImporte extends javax.swing.JPanel {
-
     double total = 0;
-
     public Ejp28_SistemaImporte() {
         initComponents();
     }
@@ -33,13 +31,9 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTVuelto = new javax.swing.JTextField();
-        jTPago = new javax.swing.JTextField();
-        btnCalcularDevolucion = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
         btnAñadirBoton = new javax.swing.JButton();
+        LIMPIAR = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -74,7 +68,7 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
         jScrollPane2.setViewportView(Tabla);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(76, 14, 613, 270);
+        jScrollPane2.setBounds(20, 10, 730, 280);
 
         txtSubtotal.setEditable(false);
         txtSubtotal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -152,43 +146,6 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
         jPanel1.add(txtTotal);
         txtTotal.setBounds(150, 510, 255, 42);
 
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("vuelto :");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(470, 540, 70, 31);
-
-        jLabel9.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Pago:");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(480, 480, 57, 35);
-
-        jTVuelto.setEditable(false);
-        jTVuelto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTVuelto.setFocusable(false);
-        jPanel1.add(jTVuelto);
-        jTVuelto.setBounds(540, 530, 189, 44);
-
-        jTPago.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPanel1.add(jTPago);
-        jTPago.setBounds(540, 470, 189, 44);
-
-        btnCalcularDevolucion.setBackground(new java.awt.Color(204, 204, 204));
-        btnCalcularDevolucion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnCalcularDevolucion.setForeground(new java.awt.Color(0, 0, 0));
-        btnCalcularDevolucion.setText("Calcular devolucion");
-        btnCalcularDevolucion.setOpaque(true);
-        btnCalcularDevolucion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcularDevolucionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCalcularDevolucion);
-        btnCalcularDevolucion.setBounds(540, 400, 210, 53);
-
         btnCalcular.setBackground(new java.awt.Color(204, 204, 204));
         btnCalcular.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnCalcular.setForeground(new java.awt.Color(0, 0, 0));
@@ -200,7 +157,7 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
             }
         });
         jPanel1.add(btnCalcular);
-        btnCalcular.setBounds(540, 350, 210, 47);
+        btnCalcular.setBounds(470, 350, 210, 47);
 
         btnAñadirBoton.setBackground(new java.awt.Color(204, 204, 204));
         btnAñadirBoton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -213,7 +170,19 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
             }
         });
         jPanel1.add(btnAñadirBoton);
-        btnAñadirBoton.setBounds(540, 300, 210, 45);
+        btnAñadirBoton.setBounds(470, 300, 210, 45);
+
+        LIMPIAR.setBackground(new java.awt.Color(204, 204, 255));
+        LIMPIAR.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        LIMPIAR.setForeground(new java.awt.Color(0, 0, 0));
+        LIMPIAR.setText("LIMPIAR");
+        LIMPIAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LIMPIARActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LIMPIAR);
+        LIMPIAR.setBounds(470, 400, 210, 50);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -221,20 +190,6 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
     private void txtIvaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIvaPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIvaPActionPerformed
-
-    private void btnCalcularDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularDevolucionActionPerformed
-        try {
-            double pago = Double.valueOf(jTPago.getText());
-            //validar que el pago sea mayor o igual al total
-            if (pago < total) {
-                throw new RuntimeException(); //salta al catch si pago es menor a total
-            }
-            double vuelto = pago - total;
-            jTVuelto.setText(String.format("%.2f", vuelto));
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "¡Error! Ingrese un pago mayor o igual al Total a Pagar");
-        }
-    }//GEN-LAST:event_btnCalcularDevolucionActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
@@ -252,13 +207,13 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
                 }
                 double importe = cant * precio;
                 st += importe;
-                modelo.setValueAt(String.format("%.2f", importe), fila, 4); // mostrar importe
+                modelo.setValueAt(String.format("%.2f", importe), fila, 4);
                 fila++;
             } while (fila < N);
             txtSubtotal.setText(String.format("%.2f", st));
-            // Calcular descuento según el subtotal
             double desc = (st > 1000) ? st * 0.10 : (st >= 500 ? st * 0.05 : 0);
             txtDescuento.setText(String.format("%.2f", desc));
+            int ivap = Integer.parseInt(txtIvaP.getText());
             double iva = st * 0.12;
             txtIva.setText(String.format("%.2f", iva));
             double total = st + iva - desc;
@@ -282,24 +237,31 @@ public class Ejp28_SistemaImporte extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAñadirBotonActionPerformed
 
+    private void LIMPIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LIMPIARActionPerformed
+
+        DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
+        modelo.setRowCount(0);
+        txtSubtotal.setText("");
+        txtDescuento.setText("");
+        txtIva.setText("");
+        txtTotal.setText("");
+        txtIvaP.setText("");
+    }//GEN-LAST:event_LIMPIARActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LIMPIAR;
     private javax.swing.JTable Tabla;
     private javax.swing.JButton btnAñadirBoton;
     private javax.swing.JButton btnCalcular;
-    private javax.swing.JButton btnCalcularDevolucion;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTPago;
-    private javax.swing.JTextField jTVuelto;
     private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtIva;
     private javax.swing.JTextField txtIvaP;
