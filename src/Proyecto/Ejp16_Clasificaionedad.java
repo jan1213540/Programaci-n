@@ -2,7 +2,7 @@ package Proyecto;
 
 /**
  *
- * @author vifer
+ * @Jandry Gutierrez
  */
 public class Ejp16_Clasificaionedad extends javax.swing.JPanel {
     int contNinos = 0, contAdolescentes = 0, contJovenes = 0, contAdultos = 0, contMayores = 0;

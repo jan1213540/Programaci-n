@@ -2,7 +2,7 @@ package Proyecto;
 import javax.swing.JOptionPane;
 /**
  *
- * @author vifer
+ * @Jandry Gutierrez
  */
 public class Ejp5_CaracteresASCII extends javax.swing.JPanel {
     public Ejp5_CaracteresASCII() {
