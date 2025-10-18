@@ -154,7 +154,6 @@ public class Ejp20_binarioDecimal extends javax.swing.JPanel {
                     n = n / 2;
                 }
             }
-
             jTValorB.setText(binario);
 
         } catch (NumberFormatException e) {
@@ -172,7 +171,7 @@ public class Ejp20_binarioDecimal extends javax.swing.JPanel {
         try {
             String binario = jTNumeroB.getText().trim();
             int decimal = 0;
-            for (int i = 0; i < binario.length(); i++) {
+            for (int i = 0; i < binario.length(); i++) { 
                 char digito = binario.charAt(i);
                 if (digito != '0' && digito != '1') {
                     JOptionPane.showMessageDialog(null, "Solo ingrese 0s y 1s");

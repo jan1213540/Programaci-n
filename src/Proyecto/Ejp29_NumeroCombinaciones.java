@@ -23,9 +23,9 @@ public class Ejp29_NumeroCombinaciones extends javax.swing.JPanel {
         txtN = new javax.swing.JTextField();
         txtK = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        CalcularCombinaciones = new javax.swing.JButton();
         txtCom = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -64,34 +64,34 @@ public class Ejp29_NumeroCombinaciones extends javax.swing.JPanel {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(310, 20, 220, 110);
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setText("CALCULAR LAS COMBINACIONES");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        CalcularCombinaciones.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        CalcularCombinaciones.setText("CALCULAR LAS COMBINACIONES");
+        CalcularCombinaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                CalcularCombinacionesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(30, 160, 340, 60);
+        jPanel1.add(CalcularCombinaciones);
+        CalcularCombinaciones.setBounds(30, 160, 340, 60);
 
         txtCom.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPanel1.add(txtCom);
         txtCom.setBounds(390, 160, 140, 60);
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton2.setText("LIMPIAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Limpiar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Limpiar.setText("LIMPIAR");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                LimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(390, 260, 180, 60);
+        jPanel1.add(Limpiar);
+        Limpiar.setBounds(390, 260, 180, 60);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void CalcularCombinacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularCombinacionesActionPerformed
         try {
             long n = Long.parseLong(txtN.getText());
             long k = Long.parseLong(txtK.getText());
@@ -118,19 +118,19 @@ public class Ejp29_NumeroCombinaciones extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "¡Error! Ingrese valores numéricos válidos");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_CalcularCombinacionesActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
         txtK.setText("");
         txtN.setText("");
         txtCom.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_LimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton CalcularCombinaciones;
+    private javax.swing.JButton Limpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

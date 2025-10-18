@@ -109,15 +109,14 @@ public class Ejp9_SeriesCombinada extends javax.swing.JPanel {
         for (int i = 0; i < N; i++) {
             if (i > 0) {
                 serie += ", ";
-            }
-            if (i % 2 == 0) {
+            }else if (i % 2 == 0) {
                 serie += min;
                 min++;
             } else {
                 serie += may;
                 may--;
             }
-        }
+        } 
         txtSerie.setText("\n" + serie);
     }//GEN-LAST:event_jButton1ActionPerformed
 
